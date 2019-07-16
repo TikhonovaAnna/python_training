@@ -23,7 +23,6 @@ class TestAddContact(unittest.TestCase):
         wd.find_element_by_name("pass").click()
         wd.find_element_by_name("pass").clear()
         wd.find_element_by_name("pass").send_keys("secret")
-        wd.find_element_by_xpath("(.//*[normalize-space(text()) and normalize-space(.)='Group:'])[1]/following::option[7]").click()
         wd.find_element_by_link_text("add new").click()
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("middlename").click()
