@@ -16,8 +16,10 @@ class TestAddContact(unittest.TestCase):
     def test_add_contact(self):
         wd = self.wd
         self.open_home_page(wd)
-        self.login(wd)
-        self.add_contact(wd)
+        self.login(wd, user="admin", password="secret")
+        self.add_contact(wd, firstname="dsf", dlename="gdfg", lastname="ew", nickname="gdf", title="wer", company="dg",
+                         address="dg", home="dg", mobile="43", work="sdg", fax="213", email="243", email2="234",
+                         email3="245", homepage="fsdf", address2="dsf", phone2="sg", notes="sfghh")
         self.return_home_page(wd)
         self.logout(wd)
 
@@ -27,9 +29,8 @@ class TestAddContact(unittest.TestCase):
     def return_home_page(self, wd):
         wd.find_element_by_link_text("home page").click()
 
-    def add_contact(self, wd, firstname="dsf", dlename="gdfg", lastname="ew", nickname="gdf", title="wer", company="dg",
-                    address="dg", home="dg", mobile="43", work="sdg", fax="213", email="243", email2="234", email3="245",
-                    homepage="fsdf", address2="dsf", phone2="sg", notes="sfghh"):
+    def add_contact(self, wd, firstname, dlename, lastname, nickname, title, company, address, home, mobile, work, fax,
+                    email, email2, email3, homepage, address2, phone2, notes):
         # open contact
         wd.find_element_by_link_text("add new").click()
         # add contact
@@ -90,13 +91,13 @@ class TestAddContact(unittest.TestCase):
         # submit contact
         wd.find_element_by_xpath("(//input[@name='submit'])[2]").click()
 
-    def login(self, wd):
+    def login(self, wd, user, password):
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
-        wd.find_element_by_name("user").send_keys("admin")
+        wd.find_element_by_name("user").send_keys(user)
         wd.find_element_by_name("pass").click()
         wd.find_element_by_name("pass").clear()
-        wd.find_element_by_name("pass").send_keys("secret")
+        wd.find_element_by_name("pass").send_keys(password)
         wd.find_element_by_xpath("//input[@value='Login']").click()
 
     def open_home_page(self, wd):
