@@ -2,7 +2,8 @@
 import pytest
 from group import Group
 from application import Application
-
+from application import Application
+from group import Group
 
 @pytest.fixture()
 def app(request):
