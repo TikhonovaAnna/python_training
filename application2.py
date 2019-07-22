@@ -2,7 +2,6 @@ from selenium import webdriver
 
 
 class Application2:
-
     def __init__(self):
         self.wd = webdriver.Firefox()
         self.wd.implicitly_wait(30)
